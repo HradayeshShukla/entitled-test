@@ -1,4 +1,4 @@
-FROM openshift/origin-jenkins-agent-maven:latest 
+FROM registry.redhat.io/openshift4/ose-jenkins-agent-maven:latest 
 
 USER root
 # Copy entitlements
