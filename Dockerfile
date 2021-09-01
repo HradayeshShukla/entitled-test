@@ -13,5 +13,5 @@ RUN sleep 10
 
 RUN cat /etc/yum.repos.d/redhat.repo
 
-RUN yum repolist --disablerepo=* &&     yum -y update &&     yum -y install --enablerepo=rhel-8-for-x86_64-appstream-rpms xorg-x11-xauth xorg-x11-server-Xvfb devtoolset-3-eclipse-swt
+RUN rm /etc/rhsm-host && yum repolist --disablerepo=* &&     yum -y update &&     yum -y install --enablerepo=rhel-8-for-x86_64-appstream-rpms xorg-x11-xauth xorg-x11-server-Xvfb devtoolset-3-eclipse-swt
 
