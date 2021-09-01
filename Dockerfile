@@ -2,8 +2,11 @@ FROM registry.redhat.io/openshift4/ose-jenkins-agent-maven:latest
 
 USER root
 
-
 # RUN yum update --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos -y && rm -rf /var/cache/yum
 # RUN yum install --disablerepo=* --enablerepo=ubi-8-appstream --enablerepo=ubi-8-baseos xorg-x11-xauth xorg-x11-server-Xvfb devtoolset-3-eclipse-swt -y && rm -rf /var/cache/yum 
-RUN yum repolist --disablerepo=* &&     yum -y update &&     yum -y install --enablerepo=rhel-8-for-x86_64-appstream-rpms xorg-x11-xauth xorg-x11-server-Xvfb devtoolset-3-eclipse-swt
+RUN yum repolist -v
+
 RUN sleep 100 
+
+RUN yum repolist --disablerepo=* &&     yum -y update &&     yum -y install --enablerepo=rhel-8-for-x86_64-appstream-rpms xorg-x11-xauth xorg-x11-server-Xvfb devtoolset-3-eclipse-swt
+
